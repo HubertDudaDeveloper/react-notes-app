@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    all: unset;
+  }
+
+  .form__isFavorite {
+    color: gold;
+  }
+  
+  .form__title {
+    max-width: 320px;
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .form__content {
+    min-width: 320px;
+    max-width: 756px;
+    max-height: 600px;
+    border-radius: 8px;
+  }
+}
