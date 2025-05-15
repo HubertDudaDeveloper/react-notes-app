@@ -1,0 +1,19 @@
+.noteList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+
+  .noteListAction {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  
+    .noteListActionButton {
+      border-radius: 8px;
+      border: 2px solid #ddd;
+      padding: 16px;
+      text-align: center;
+    }
+  }
+}

@@ -8,7 +8,7 @@
   border-radius: 16px;
   padding: 24px 16px;
 
-  .form__wrapper {
+  .formWrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -16,14 +16,14 @@
     position: relative;
   }
 
-  .form__isFavorite {
+  .formIsFavorite {
     position: absolute;
     color: orange;
     font-size: 36px;
     right: 8px;
   }
   
-  .form__title {
+  .formTitle {
     font: 500 24px/24px monospace;
     max-width: 756px;
     min-width: 200px;
@@ -32,9 +32,10 @@
     padding: 8px;
   }
 
-  .form__content {
+  .formContent {
     padding: 8px;
     max-width: 100%;
+    width: 100%;
     min-width: 200px;
     max-height: 600px;
     border-radius: 8px;
@@ -42,13 +43,33 @@
     font: 400 18px/24px monospace;
   }
 
-    .form__color {
-      background-color: transparent;
-      border-radius: 50%;
-      border: none;
-      height: 48px;
-      width: 48px;
-      padding: 0;
-      margin: 0;
-    }
+  .formColor {
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
+    height: 48px;
+    width: 48px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .formColor::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+  .formColor::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+  }
+
+  .formLabelColor {
+    font: 600 18px/24px monospace;
+  }
+
+  .formButton {
+    font: 600 18px/24px monospace;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 24px;
+  }
 }

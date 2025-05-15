@@ -1,6 +1,6 @@
 import { INote } from "@/types/note";
 import { ChangeEvent, ReactElement } from "react";
-import NodeItem from "@/assets/styles/NoteItem.module.scss";
+import NoteItemModel from "@/assets/styles/NoteItem.module.scss";
 import { useNotes } from "@/hooks/useNotes";
 
 interface INoteItemProps {
@@ -14,25 +14,33 @@ export const NoteItem = ({
 }: INoteItemProps): ReactElement => {
   const { updateNote } = useNotes();
 
+  const formatDate = (date: string) => new Date(date).toLocaleString("pl-PL", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
   const handleChange = (key: string, value: string | boolean) => {
     const newNote: INote = { ...note, [key]: value };
     updateNote(newNote);
   };
 
   return (
-    <div className={NodeItem.note__item} key={`${note.id}`}>
-      <div className={NodeItem.note__title__container}>
+    <div className={NoteItemModel.noteItem} key={`${note.id}`}>
+      <div className={NoteItemModel.noteTitleContainer}>
         <input
           type="text"
           onChange={(event: ChangeEvent<HTMLInputElement>) =>
             handleChange("title", event.target.value)
           }
-          className={NodeItem.note__title}
+          className={NoteItemModel.noteTitle}
           style={{ color: note.color }}
           value={note.title}
         />
         <button
-          className={NodeItem.form__isFavorite}
+          className={NoteItemModel.noteIsFavorite}
           type="button"
           onClick={() => handleChange("isFavorite", !note.isFavorite)}
         >
@@ -44,7 +52,7 @@ export const NoteItem = ({
           handleChange("content", event.target.value)
         }
         value={note.content}
-        className={NodeItem.note__content}
+        className={NoteItemModel.noteContent}
       >
       </textarea>
       <input
@@ -53,10 +61,12 @@ export const NoteItem = ({
         onChange={(event: ChangeEvent<HTMLInputElement>) =>
           handleChange("color", event.target.value)
         }
-        className={NodeItem.note__color}
+        className={NoteItemModel.noteColor}
       />
+
+      <span>Data utworzenia: { formatDate(note.createdAt) }</span>
       <button
-        className={NodeItem.note__remove}
+        className={NoteItemModel.noteRemove}
         type="button"
         onClick={() => onRemoveNote()}
       >

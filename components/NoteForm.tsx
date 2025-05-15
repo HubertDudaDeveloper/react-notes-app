@@ -37,10 +37,10 @@ export const NoteForm = (): ReactElement => {
 
   return (
     <form className={NoteFormModule.form}>
-      <div className={NoteFormModule.form__wrapper}>
+      <div className={NoteFormModule.formWrapper}>
         <input
           placeholder="Wpisz tytuł..."
-          className={NoteFormModule.form__title}
+          className={NoteFormModule.formTitle}
           type="text"
           required
           value={note.title}
@@ -49,7 +49,7 @@ export const NoteForm = (): ReactElement => {
           }
         />
         <button
-          className={NoteFormModule.form__isFavorite}
+          className={NoteFormModule.formIsFavorite}
           type="button"
           onClick={() => setIsFavorite(!isFavorite)}
         >
@@ -58,8 +58,8 @@ export const NoteForm = (): ReactElement => {
       </div>
 
       <textarea
-        placeholder="Notatka ..."
-        className={NoteFormModule.form__content}
+        placeholder="Co masz na myśli..."
+        className={NoteFormModule.formContent}
         value={note.content}
         required
         onChange={(event: ChangeEvent<HTMLTextAreaElement>) =>
@@ -67,16 +67,22 @@ export const NoteForm = (): ReactElement => {
         }
       />
 
+      <label htmlFor="form-color" className={NoteFormModule.formLabelColor}>
+        Kolor:
+      </label>
+
       <input
+        id="form-color"
         type="color"
         value={note.color}
-        className={NoteFormModule.form__color}
+        className={NoteFormModule.formColor}
         onChange={(event: ChangeEvent<HTMLInputElement>) =>
           handleChange(event, "color")
         }
       />
       <button
         type="submit"
+        className={NoteFormModule.formButton}
         onClick={(e: React.MouseEvent<HTMLElement>) => handleClick(e)}
       >
         Zapisz notatkę

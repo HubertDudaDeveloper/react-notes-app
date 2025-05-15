@@ -1,20 +1,54 @@
-.note__item {
+.noteItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 8px;
+  max-width: 756px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
 
-  .note__title {
+  .noteTitleContainer {
+    position: relative;
+    border-bottom: 1px solid white;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .noteTitle {
     font: 500 24px/24px monospace;
-    -webkit-text-stroke-width: 0.3px;
-    -webkit-text-stroke-color: white;
+    color: white;
+    border: none;
+    background-color: transparent;
+    padding: 8px;
   }
 
-  .note__content {
+  .noteIsFavorite {
+    position: absolute;
+    right: 0;
+    font-size: 24px;
+    color: goldenrod;
+  }
+
+  .noteContent {
     font: 400 18px/24px monospace;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    min-height: max-content;
   }
 
-  .note__remove {
-
+  .noteRemove {
+    font: 400 18px/24px monospace;
+    border: 2px solid #ddd;
+    padding: 12px;
   }
 
-  .note__date {
+  .noteDate {
 
   }
 

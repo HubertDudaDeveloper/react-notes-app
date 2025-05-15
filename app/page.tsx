@@ -7,17 +7,9 @@ export default function Home() {
   
   return (
     <div className={styles.page}>
+      <h1 style={{ textAlign: "center" }}>📝 React Notes App</h1>
       <main className={styles.main}>
         <NoteForm />
-        <div>
-          <button>
-            Ulubione
-          </button>
-          
-          <button>
-            Od najstarszych
-          </button>
-        </div>
         <NoteList />
       </main>
       <footer className={styles.footer}>Hubert Duda Developer</footer>
