@@ -2,7 +2,8 @@
 
 import { INote } from "@/types/note";
 import { ChangeEvent, ReactElement, useState } from "react";
-import NoteFormModule from "@/assets/styles/NoteForm.module.scss"
+import NoteFormModule from "@/assets/styles/NoteForm.module.scss";
+import { useNotes } from "@/hooks/useNotes";
 
 export const NoteForm = (): ReactElement => {
   const initialNote: INote = {
@@ -13,6 +14,8 @@ export const NoteForm = (): ReactElement => {
     createdAt: "",
     isFavorite: false,
   };
+
+  const { addNote } = useNotes();
 
   const [note, setNote] = useState<INote>(initialNote);
 
@@ -27,37 +30,42 @@ export const NoteForm = (): ReactElement => {
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
-    
+    addNote(note);
+    setNote(initialNote);
   };
 
   return (
-    <form className={ NoteFormModule.form }>
+    <form className={NoteFormModule.form}>
       <div>
         <input
-          className={ NoteFormModule.title }
+          className={NoteFormModule.title}
           type="text"
           value={note.title}
           onChange={(event: ChangeEvent<HTMLInputElement>) =>
             handleChange(event, "title")
           }
         />
-        <button className={ NoteFormModule.form__isFavorite } type="button" onClick={() => setIsFavorite(!isFavorite)}>
-          {isFavorite ? "✰" : "★"}
+        <input
+          type="color"
+          value={note.color}
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            handleChange(event, "color")
+          }
+        />
+        <button
+          className={NoteFormModule.form__isFavorite}
+          type="button"
+          onClick={() => setIsFavorite(!isFavorite)}
+        >
+          {isFavorite ? "★" : "✰"}
         </button>
       </div>
-      
+
       <textarea
-        className={ NoteFormModule.form__content }
+        className={NoteFormModule.form__content}
         value={note.content}
         onChange={(event: ChangeEvent<HTMLTextAreaElement>) =>
           handleChange(event, "content")
-        }
-      />
-      <input
-        type="color"
-        value={note.color}
-        onChange={(event: ChangeEvent<HTMLInputElement>) =>
-          handleChange(event, "color")
         }
       />
       <button

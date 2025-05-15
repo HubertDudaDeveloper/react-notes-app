@@ -1,11 +1,13 @@
+"use client";
+
 import { INote } from "@/types/note";
 
 export const loadNotes = (): INote[] => {
-  const notes = localStorage.get('notes') ?? JSON.parse(localStorage.get('notes'));
+  const notes = JSON.parse(localStorage.getItem('notes') || '[]');
 
   return notes as INote[];
 }
 
 export const saveNotes = (notes: INote[]): void => {
-  localStorage.set('notes', JSON.stringify(notes));
+  localStorage.setItem('notes', JSON.stringify(notes));
 }
