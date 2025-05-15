@@ -4,26 +4,41 @@
   gap: 8px;
   justify-content: center;
   align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 24px 16px;
 
-  button {
-    all: unset;
+  .form__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
   }
 
   .form__isFavorite {
-    color: gold;
+    position: absolute;
+    color: orange;
     font-size: 36px;
+    right: 8px;
   }
   
   .form__title {
-    max-width: 320px;
+    font: 500 24px/24px monospace;
+    max-width: 756px;
+    min-width: 200px;
     width: 100%;
     border-radius: 8px;
+    padding: 8px;
   }
 
   .form__content {
-    min-width: 320px;
-    max-width: 756px;
+    padding: 8px;
+    max-width: 100%;
+    min-width: 200px;
     max-height: 600px;
     border-radius: 8px;
+    min-height: 168px;
+    font: 400 18px/24px monospace;
   }
 }

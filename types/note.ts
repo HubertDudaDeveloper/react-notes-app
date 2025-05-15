@@ -6,3 +6,8 @@ export interface INote {
   color: string;
   isFavorite: boolean;
 }
+
+export enum ENotesSortValue {
+  DESC = 'descending',
+  ASC = 'ascscending'
+}

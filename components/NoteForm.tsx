@@ -10,7 +10,7 @@ export const NoteForm = (): ReactElement => {
     id: "",
     title: "",
     content: "",
-    color: "",
+    color: "#000000",
     createdAt: "",
     isFavorite: false,
   };
@@ -36,20 +36,15 @@ export const NoteForm = (): ReactElement => {
 
   return (
     <form className={NoteFormModule.form}>
-      <div>
+      <div className={NoteFormModule.form__wrapper}>
         <input
-          className={NoteFormModule.title}
+          placeholder="Wpisz tytuł..."
+          className={NoteFormModule.form__title}
           type="text"
+          required
           value={note.title}
           onChange={(event: ChangeEvent<HTMLInputElement>) =>
             handleChange(event, "title")
-          }
-        />
-        <input
-          type="color"
-          value={note.color}
-          onChange={(event: ChangeEvent<HTMLInputElement>) =>
-            handleChange(event, "color")
           }
         />
         <button
@@ -62,10 +57,20 @@ export const NoteForm = (): ReactElement => {
       </div>
 
       <textarea
+        placeholder="Notatka ..."
         className={NoteFormModule.form__content}
         value={note.content}
+        required
         onChange={(event: ChangeEvent<HTMLTextAreaElement>) =>
           handleChange(event, "content")
+        }
+      />
+
+      <input
+        type="color"
+        value={note.color}
+        onChange={(event: ChangeEvent<HTMLInputElement>) =>
+          handleChange(event, "color")
         }
       />
       <button

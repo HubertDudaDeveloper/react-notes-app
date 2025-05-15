@@ -2,25 +2,21 @@
 
 import { useNotes } from "@/hooks/useNotes";
 import { INote } from "@/types/note";
+import { ReactElement } from "react";
+import NoteItem from "@/components/NoteItem";
 
-export const NoteList = () => {
-  const { notes } = useNotes();
+export const NoteList = (): ReactElement => {
+  const { notes, removeNote } = useNotes();
+
+  const handleRemoveNote = (noteId: string) => {
+    removeNote(noteId);
+  }
 
   return (
     <>
-      { notes.map((note: INote, index: number) =>
+      { notes.map((note: INote) =>
         (
-          <div key={`${note.id} - ${index}`}>
-            <h3>
-              { note.title }
-            </h3>
-            <p>
-              { note.content }
-            </p>
-            <span>
-              { note.color }
-            </span>
-          </div>
+          <NoteItem key={note.id} note={note} onRemoveNote={() => handleRemoveNote(note.id)}/>
         )
       ) }
     </>
