@@ -30,6 +30,7 @@ export const NoteForm = (): ReactElement => {
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
+    note.isFavorite = isFavorite;
     addNote(note);
     setNote(initialNote);
   };
@@ -69,6 +70,7 @@ export const NoteForm = (): ReactElement => {
       <input
         type="color"
         value={note.color}
+        className={NoteFormModule.form__color}
         onChange={(event: ChangeEvent<HTMLInputElement>) =>
           handleChange(event, "color")
         }

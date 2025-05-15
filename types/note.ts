@@ -8,6 +8,6 @@ export interface INote {
 }
 
 export enum ENotesSortValue {
-  DESC = 'descending',
-  ASC = 'ascscending'
+  DESC = "descending",
+  ASC = "ascscending",
 }

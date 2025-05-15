@@ -24,20 +24,29 @@ export const NoteItem = ({
       <div className={NodeItem.note__title__container}>
         <input
           type="text"
-          onChange={(event: ChangeEvent<HTMLInputElement>) => handleChange('title', event.target.value)}
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            handleChange("title", event.target.value)
+          }
           className={NodeItem.note__title}
           style={{ color: note.color }}
           value={note.title}
         />
+        <button
+          className={NodeItem.form__isFavorite}
+          type="button"
+          onClick={() => handleChange("isFavorite", !note.isFavorite)}
+        >
+          { note.isFavorite ? "★" : "✰" }
+        </button>
       </div>
       <textarea
         onChange={(event: ChangeEvent<HTMLTextAreaElement>) =>
           handleChange("content", event.target.value)
         }
+        value={note.content}
         className={NodeItem.note__content}
       >
-          {note.content}
-        </textarea>
+      </textarea>
       <input
         type="color"
         value={note.color}

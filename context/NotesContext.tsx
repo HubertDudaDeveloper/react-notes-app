@@ -53,13 +53,15 @@ export const NotesProvider = ({ children }: { children: ReactNode }) => {
   const removeNote = (noteId: string): void => {
     const newNotes = notes.filter((note: INote) => note.id !== noteId);
     setNotes(newNotes);
-    console.log(newNotes);
     saveNotes(newNotes);
   };
 
   const updateNote = (note: INote) => {
-    const newNotes = [...notes.filter((fNote) => fNote.id !== note.id), note];
-    setNotes(newNotes);
+    const noteIndex = notes.findIndex((fNote) => fNote.id === note.id);
+    const copyNotes = [...notes]
+    copyNotes[noteIndex] = note;
+    setNotes(copyNotes);
+    saveNotes(copyNotes);
   };
 
   return (
