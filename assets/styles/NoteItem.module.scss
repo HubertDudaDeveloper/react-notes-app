@@ -1,3 +1,6 @@
+@use '@/assets/variables/__colors.scss' as *;
+@use '@/assets/variables/__typography.scss' as *;
+
 .noteItem {
   display: flex;
   flex-direction: column;
@@ -19,7 +22,6 @@
 
   .noteTitle {
     font: 500 24px/24px monospace;
-    color: white;
     border: none;
     background-color: transparent;
     padding: 8px;
@@ -35,7 +37,6 @@
   .noteContent {
     font: 400 18px/24px monospace;
     background-color: rgba(255, 255, 255, 0.2);
-    color: white;
     border: none;
     border-radius: 8px;
     padding: 8px;
@@ -45,11 +46,40 @@
   .noteRemove {
     font: 400 18px/24px monospace;
     border: 2px solid #ddd;
+    border-radius: 8px;
     padding: 12px;
   }
 
-  .noteDate {
+  .noteColor {
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
+    height: 36px;
+    width: 36px;
+    padding: 0;
+    margin: 0;
+  }
 
+  .noteColor::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+  .noteColor::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+  }
+
+  .noteDate {
+    font: 400 16px/20px monospace;
+  }
+
+}
+
+.dark .noteItem {
+  border-color: $cl-dark-secondary;
+
+  .noteTitleContainer {
+    border-color: $cl-dark-secondary;
   }
 
 }

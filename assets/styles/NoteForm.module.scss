@@ -1,3 +1,6 @@
+@use '@/assets/variables/__colors.scss' as *;
+@use '@/assets/variables/__typography.scss' as *;
+
 .form {
   display: flex;
   flex-direction: column;
@@ -18,7 +21,7 @@
 
   .formIsFavorite {
     position: absolute;
-    color: orange;
+    color: $cl-star;
     font-size: 36px;
     right: 8px;
   }

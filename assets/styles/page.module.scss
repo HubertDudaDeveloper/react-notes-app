@@ -1,0 +1,26 @@
+*:focus {
+  outline: 2px solid lightblue !important;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 100vh;
+  height: 100%;
+
+  .pageTitle {
+    padding: 24px 0;
+    text-align: center;
+  }
+
+  .pageMain {
+
+  }
+
+  .pageFooter {
+    margin-top: auto;
+    padding: 24px;
+    text-align: center;
+  }
+}

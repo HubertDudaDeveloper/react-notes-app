@@ -16,4 +16,10 @@
       text-align: center;
     }
   }
+
+  .noteListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;    
+  }
 }

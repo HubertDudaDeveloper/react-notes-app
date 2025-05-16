@@ -1,4 +1,6 @@
-/* app/globals.css */
+@use '@/assets/variables/__colors.scss' as *;
+@use '@/assets/variables/__typography.scss' as *;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,19 +12,11 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  font-family: system-ui, sans-serif;
-  background-color: #222;
-  color: #f9f9f9;
-  min-height: 100vh;
-  height: 100%;
+  font-family: $font-primary;
 }
 
 button {
   all: unset;
-}
-
-footer {
-  text-align: center;
 }
 
 .app__main {

@@ -1,6 +1,7 @@
 // app/layout.tsx
-import "@/app/globals.scss";
+import "@/assets/styles/globals.scss";
 import { NotesProvider } from "@/context/NotesContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 import { ReactNode } from "react";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -8,7 +9,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <head />
       <body>
-          <NotesProvider>{children}</NotesProvider>
+        <ThemeProvider>
+          <NotesProvider>
+            {children}
+          </NotesProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
