@@ -1,3 +1,6 @@
+@use '@/assets/variables/__colors.scss' as *;
+@use '@/assets/variables/__typography.scss' as *;
+
 .noteList {
   display: flex;
   flex-direction: column;
@@ -6,14 +9,38 @@
 
   .noteListAction {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 24px;
+
+    .noteListActionSort {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      text-align: center;
+      gap: 12px;
+      font: $font-normal;
+    }
   
     .noteListActionButton {
       border-radius: 8px;
-      border: 2px solid #ddd;
+      border: 2px solid $cl-primary;
       padding: 16px;
       text-align: center;
+      font: $font-normal;
+      transition-duration: 0.25s;
+
+      .noteListActionButtonStar {
+        color: $cl-star;
+        font-size: 24px;
+      }
+    
+      &__active {
+        border: 2px solid $cl-active;
+      }
+
+      &:hover {
+        border-color: $cl-button-hover;
+      }
     }
   }
 
@@ -21,5 +48,24 @@
     display: flex;
     flex-direction: column;
     gap: 16px;    
+  }
+
+  .noteListNoNotes {
+    text-align: center;
+    padding: 48px;
+    font-size: 24px;
+  }
+}
+
+:global(.dark) .noteList {
+  
+  .noteListActionButton {
+    &__active {
+      border: 2px solid $cl-dark-active;
+    }
+
+    &:hover {
+      border-color: $cl-dark-button-hover;
+    }
   }
 }

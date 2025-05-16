@@ -1,4 +1,3 @@
-// app/layout.tsx
 import "@/assets/styles/globals.scss";
 import { NotesProvider } from "@/context/NotesContext";
 import { ThemeProvider } from "@/context/ThemeContext";

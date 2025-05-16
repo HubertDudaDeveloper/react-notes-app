@@ -1,6 +1,5 @@
-*:focus {
-  outline: 2px solid lightblue !important;
-}
+@use '@/assets/variables/__colors.scss' as *;
+@use '@/assets/variables/__typography.scss' as *;
 
 .page {
   display: flex;
@@ -8,14 +7,31 @@
   gap: 24px;
   min-height: 100vh;
   height: 100%;
+  color: $cl-black;
+  background-color: $cl-white;
+  transition-duration: 0.25s;
+  width: 100%;
+  align-items: center;
+  padding: 0 24px;
 
-  .pageTitle {
-    padding: 24px 0;
-    text-align: center;
+  .pageHeader {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+    .pageTitle {
+      padding: 24px 0;
+      text-align: center;
+    }
+
+    .pageThemeButton {
+      font-size: 24px;
+    }
   }
 
   .pageMain {
-
+    max-width: 756px;
+    width: 100%;
   }
 
   .pageFooter {
@@ -23,4 +39,9 @@
     padding: 24px;
     text-align: center;
   }
+}
+
+:global(.dark).page {
+  color: $cl-white;
+  background-color: $cl-dark-primary;
 }

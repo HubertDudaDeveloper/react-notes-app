@@ -25,29 +25,38 @@
     border: none;
     background-color: transparent;
     padding: 8px;
+    width: 100%;
   }
 
   .noteIsFavorite {
     position: absolute;
-    right: 0;
-    font-size: 24px;
-    color: goldenrod;
+    right: 8px;
+    top: -4px;
+    font-size: 36px;
+    color: $cl-star;
   }
 
   .noteContent {
-    font: 400 18px/24px monospace;
-    background-color: rgba(255, 255, 255, 0.2);
+    font: $font-normal-slim;
+    background-color: $cl-input;
     border: none;
     border-radius: 8px;
     padding: 8px;
     min-height: max-content;
+    max-width: 100%;
+    min-width: 200px;
   }
 
   .noteRemove {
-    font: 400 18px/24px monospace;
-    border: 2px solid #ddd;
+    font: $font-normal-slim;
+    border: 2px solid $cl-primary;
     border-radius: 8px;
     padding: 12px;
+    transition-duration: 0.25s;
+
+    &:hover {
+      border-color: $cl-button-hover;
+    }
   }
 
   .noteColor {
@@ -58,6 +67,7 @@
     width: 36px;
     padding: 0;
     margin: 0;
+    cursor: pointer;
   }
 
   .noteColor::-webkit-color-swatch-wrapper {
@@ -75,11 +85,24 @@
 
 }
 
-.dark .noteItem {
+:global(.dark) .noteItem {
   border-color: $cl-dark-secondary;
 
   .noteTitleContainer {
     border-color: $cl-dark-secondary;
+    background-color: $cl-dark-input;
+    color: white;
   }
 
+  .noteContent {
+    background-color: $cl-dark-input;
+    color: white;
+  }
+
+  .noteRemove {
+
+    &:hover {
+      border-color: $cl-dark-button-hover;
+    }
+  }
 }

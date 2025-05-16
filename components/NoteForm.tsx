@@ -19,8 +19,6 @@ export const NoteForm = (): ReactElement => {
 
   const [note, setNote] = useState<INote>(initialNote);
 
-  const [isFavorite, setIsFavorite] = useState<boolean>(false);
-
   const handleChange = (
     event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
     fieldName: string
@@ -30,7 +28,6 @@ export const NoteForm = (): ReactElement => {
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
-    note.isFavorite = isFavorite;
     addNote(note);
     setNote(initialNote);
   };
@@ -51,9 +48,9 @@ export const NoteForm = (): ReactElement => {
         <button
           className={NoteFormModule.formIsFavorite}
           type="button"
-          onClick={() => setIsFavorite(!isFavorite)}
+          onClick={() => setNote({...note, isFavorite: !note.isFavorite})}
         >
-          {isFavorite ? "★" : "✰"}
+          {note.isFavorite ? "★" : "✰"}
         </button>
       </div>
 

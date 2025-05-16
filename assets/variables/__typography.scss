@@ -1,2 +1,6 @@
 $font-primary: monospace;
-$font-secondary: system-ui, sans-serif;
+
+$font-normal: 500 18px/24px $font-primary; 
+$font-normal-slim: 400 18px/24px $font-primary; 
+
+$font-big: 500 24px/24px $font-primary;

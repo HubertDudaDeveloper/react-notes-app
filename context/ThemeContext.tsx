@@ -1,31 +1,30 @@
 "use client";
 
-import { createContext, ReactNode, useState } from "react";
-
-export enum EThemes {
-  DEFAULT = 'system',
-  DARK = 'dark',
-  LIGHT = 'light'
-}
+import { ETheme } from "@/types/theme";
+import { loadTheme, saveTheme } from "@/utils/storage";
+import { createContext, ReactNode, useEffect, useState } from "react";
 
 type TThemeContext = {
-  theme: EThemes
-  setTheme: (theme: EThemes) => void
-}
+  theme: ETheme;
+  setTheme: (theme: ETheme) => void;
+};
 
 export const ThemeContext = createContext<TThemeContext | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<EThemes>(EThemes.DEFAULT);
-  
+  const [theme, setTheme] = useState<ETheme>(ETheme.LIGHT);
+
+  useEffect(() => setTheme(loadTheme()), []);
+  useEffect(() => saveTheme(theme), [theme]);
+
   return (
     <ThemeContext.Provider
       value={{
         theme,
-        setTheme
+        setTheme,
       }}
     >
-      { children }
+      {children}
     </ThemeContext.Provider>
-  )
-}
+  );
+};

@@ -7,9 +7,10 @@
   gap: 8px;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ddd;
+  border: 1px solid $cl-secondary;
   border-radius: 16px;
   padding: 24px 16px;
+  max-width: 756px;
 
   .formWrapper {
     display: flex;
@@ -17,6 +18,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    width: 100%;
   }
 
   .formIsFavorite {
@@ -24,6 +26,7 @@
     color: $cl-star;
     font-size: 36px;
     right: 8px;
+    top: -4px;
   }
   
   .formTitle {
@@ -33,6 +36,9 @@
     width: 100%;
     border-radius: 8px;
     padding: 8px;
+    border: none;
+    border-bottom: 1px solid $cl-secondary;
+    background-color: $cl-input;
   }
 
   .formContent {
@@ -40,10 +46,13 @@
     max-width: 100%;
     width: 100%;
     min-width: 200px;
+    max-width: 100%;
     max-height: 600px;
     border-radius: 8px;
     min-height: 168px;
-    font: 400 18px/24px monospace;
+    font: $font-normal-slim;
+    border: none;
+    background-color: $cl-input;
   }
 
   .formColor {
@@ -54,6 +63,7 @@
     width: 48px;
     padding: 0;
     margin: 0;
+    cursor: pointer;
   }
 
   .formColor::-webkit-color-swatch-wrapper {
@@ -66,13 +76,41 @@
   }
 
   .formLabelColor {
-    font: 600 18px/24px monospace;
+    font: $font-normal;
   }
 
   .formButton {
-    font: 600 18px/24px monospace;
-    border: 2px solid #ddd;
+    font: $font-normal;
+    border: 2px solid $cl-primary;
     border-radius: 8px;
     padding: 24px;
+    transition-duration: 0.25s;
+
+    &:hover {
+      border-color: $cl-button-hover;
+    }
+  }
+}
+
+:global(.dark) .form {
+  border-color: $cl-dark-secondary;
+  
+  .formTitle {
+    color: $cl-white;
+    border-color: $cl-dark-secondary;
+    background-color: $cl-dark-input;
+  }
+
+  .formContent {
+    color: $cl-white;
+    background-color: $cl-dark-input;
+  }
+
+  .formButton {
+    border-color: $cl-dark-secondary;
+
+    &:hover {
+      border-color: $cl-dark-button-hover;
+    }
   }
 }
