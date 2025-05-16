@@ -9,15 +9,15 @@
   gap: 8px;
   max-width: 756px;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid $cl-secondary;
   border-radius: 8px;
   padding: 16px;
 
   .noteTitleContainer {
     position: relative;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid $cl-secondary;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: $cl-input;
   }
 
   .noteTitle {
